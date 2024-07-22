@@ -1,0 +1,160 @@
+﻿@model RolesViewModel
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<div class="wrapper">
+    <!--Content-Header-->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6 ">
+                    <h1 class="text-dark ">@ResourceBook.LableRoleUser</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item active"><a href="/Admin/Home/Index">@ResourceBook.LableHomePage</a></li>
+                        <li class="breadcrumb-item ">@ResourceBook.LableMangeBook</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Content-Header--> 
+    
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                        <h1 class="card-title">@ResourceBook.LableRoleUser</h1>
+              
+                        <div class="card-tools">
+                    <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-outline-info rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="Rest()">
+                                @ResourceBook.btnSaveNewRole
+                            </button>
+                          </div>
+                    </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                        <table id="myTable" class="table table-bordered table-hover text-center">
+                                <thead>
+                                   <tr>
+                                        <td>@ResourceBook.LableRoleName</td>
+                                        <td>@ResourceBook.InEvents</td>
+                                   </tr>
+                                </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Roles)
+                                        {
+                                            <tr>
+                                                <td style="font-size:30px">
+                                                    @switch (@item.Name)
+                                                    {
+                                                        case "SuperAdmin":
+                                                            <span class="badge badge-danger " style="width:80%; ">@item.Name</span>
+                                                            break;
+                                                        case "Admin":
+                                                            <span class="badge badge-success" style="width:80%; ">@item.Name</span>
+                                                            break;
+                                                        default:
+                                                            <span class="badge badge-warning" style="width:80%;">@item.Name</span>
+                                                            break;
+                                                    }
+                                                </td>
+                                                <td>
+                                                    <input type="button" class="btn btn-info" onclick="Edit('@item.Id','@item.Name')" value="@ResourceBook.btnEdit" data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                                                    <span>  |  </span>
+                                                    <input type="button" class="btn btn-danger" onclick="Delete('@item.Id')" value="@ResourceBook.btnDelete" data-bs-toggle="modal" />
+                                                    <span>  |  </span>
+                                                    <a class="btn btn-success" asp-action="Index" asp-controller="Permissions" asp-route-RoleId="@item.Id">اداره الصلاحيات </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                </tbody>
+                            
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="title">@ResourceBook.btnSaveNewRole</h1>
+                    <button type="button" class=" btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                     <form asp-action="Roles" asp-controller="Accounts" method="post">
+                         <div class="form-group">
+                           <input type="text" hidden class="form-control" asp-for="NewRole.RoleId" id="roleId" />
+
+                            <label asp-for="NewRole.RoleName" class="control-label">@ResourceBook.LableRoleName</label>
+                            <input type="text" class="form-control" asp-for="NewRole.RoleName" id="roleName" />
+
+                            <span asp-validation-for="NewRole.RoleName" class="text-danger"></span>
+                         </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-success"  value="@ResourceBook.btnSaveNewRole" id="btnSave"/>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                     </form>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+   
+
+@section Script {
+        
+    @if (!string.IsNullOrEmpty(Context.Session.GetString("msgType")))
+        {
+           if (Context.Session.GetString("msgType") == "Success")
+            {
+                <script>
+
+                    Swal.fire({
+                        title: '@Context.Session.GetString("title")',
+                        text: '@Html.Raw(@Context.Session.GetString("msg"))',
+                        icon: 'success'
+                    });
+                </script>
+
+            }
+            else
+            {
+                <script>
+                    Swal.fire({
+                    title: '@Context.Session.GetString("title")',
+                        text: '@Html.Raw(@Context.Session.GetString("msg"))',
+                        icon: 'error'
+                    });
+                </script>
+           }
+            Context.Session.SetString("msgType", "");
+    }
+    
+
+    <script src="~/Models/Roles.js"></script>
+}
+
+
+
+
+
+

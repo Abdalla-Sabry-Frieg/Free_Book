@@ -11,6 +11,6 @@ namespace InfraStructure.ViewModel
     {
         public string Name { get; set; }
         public string ImageUser { get; set; }
-        public bool ActiveUSer { get; set; }
+        public bool ActiveUser { get; set; }
     }
 }

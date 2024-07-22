@@ -9,13 +9,13 @@ namespace Domain.Entity
 {
     public class LogSubCategory
     {
-        public Guid Id { get; set; }
-        public string Action { get; set; }
-        public DateTime Date { get; set; }
-        public Guid UserId { get; set; }
+        public Guid? Id { get; set; }
+        public string? Action { get; set; }
+        public DateTime? Date { get; set; }
+        public Guid? UserId { get; set; }
 
         public Guid SubCategoryId { get; set; }
         [ForeignKey("SubCategoryId")]
-        public SubCategory SubCategory { get; set; }
+        public SubCategory? SubCategory { get; set; }
     }
 }

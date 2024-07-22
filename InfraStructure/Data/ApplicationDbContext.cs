@@ -36,6 +36,7 @@ namespace InfraStructure.Data
             builder.Entity<LogSubCategory>().Property(x => x.Id).HasDefaultValueSql("(newid())");
             builder.Entity<Book>().Property(x => x.Id).HasDefaultValueSql("(newid())");
             builder.Entity<LogBook>().Property(x => x.Id).HasDefaultValueSql("(newid())");
+            builder.Entity<VwUser>().HasNoKey().ToView("VwUsers");
         }
 
         public DbSet<Category> Categories { get; set; }
@@ -44,6 +45,7 @@ namespace InfraStructure.Data
         public DbSet<LogSubCategory> LogSubCategories { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<LogBook> LogBooks { get; set; }
+        public DbSet<VwUser> VwUsers { get; set; }
         
     }
 }

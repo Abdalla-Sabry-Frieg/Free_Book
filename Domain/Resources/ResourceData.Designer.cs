@@ -88,6 +88,42 @@ namespace Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to اعد كتابه كلمه المرور.
+        /// </summary>
+        public static string ComparPassword {
+            get {
+                return ResourceManager.GetString("ComparPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to كلمه المرور غير متطابقه.
+        /// </summary>
+        public static string ComparPasswordError {
+            get {
+                return ResourceManager.GetString("ComparPasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يجب ادخال اسم البريد الاليكتروني المستخدم .
+        /// </summary>
+        public static string EmailName {
+            get {
+                return ResourceManager.GetString("EmailName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يجب ادخال اسم البريد المستخدم بشكل صحيح.
+        /// </summary>
+        public static string EmailNameError {
+            get {
+                return ResourceManager.GetString("EmailNameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to يجب الا يزيد عدد حروف الاسم عن خمسون حرف.
         /// </summary>
         public static string NameMaxLegnth {
@@ -102,6 +138,33 @@ namespace Domain.Resources {
         public static string NameMinLegnth {
             get {
                 return ResourceManager.GetString("NameMinLegnth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يجب ادخال الرقم السري .
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يجب ادخال اسم المستخدم.
+        /// </summary>
+        public static string RegisterName {
+            get {
+                return ResourceManager.GetString("RegisterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يجب ادخال اسم المجموعه.
+        /// </summary>
+        public static string RoleName {
+            get {
+                return ResourceManager.GetString("RoleName", resourceCulture);
             }
         }
         

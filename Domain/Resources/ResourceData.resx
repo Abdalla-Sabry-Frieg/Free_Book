@@ -126,11 +126,32 @@
   <data name="CategoryName" xml:space="preserve">
     <value>يجب ادخال اسم الفئه</value>
   </data>
+  <data name="ComparPassword" xml:space="preserve">
+    <value>اعد كتابه كلمه المرور</value>
+  </data>
+  <data name="ComparPasswordError" xml:space="preserve">
+    <value>كلمه المرور غير متطابقه</value>
+  </data>
+  <data name="EmailName" xml:space="preserve">
+    <value>يجب ادخال اسم البريد الاليكتروني المستخدم </value>
+  </data>
+  <data name="EmailNameError" xml:space="preserve">
+    <value>يجب ادخال اسم البريد المستخدم بشكل صحيح</value>
+  </data>
   <data name="NameMaxLegnth" xml:space="preserve">
     <value>يجب الا يزيد عدد حروف الاسم عن خمسون حرف</value>
   </data>
   <data name="NameMinLegnth" xml:space="preserve">
     <value>يجب الا يقل عدد حروف الاسم عن ثلاثه حروف</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>يجب ادخال الرقم السري </value>
+  </data>
+  <data name="RegisterName" xml:space="preserve">
+    <value>يجب ادخال اسم المستخدم</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>يجب ادخال اسم المجموعه</value>
   </data>
   <data name="SubCategoryName" xml:space="preserve">
     <value>يجب ادخال اسم الفئه</value>
